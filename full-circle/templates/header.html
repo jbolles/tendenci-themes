@@ -1,0 +1,30 @@
+{% load nav_tags %}
+
+<!--<h1><a class="ir" id="logo" href="/">{{ SITE_GLOBAL_SITEDISPLAYNAME }}</a></h1>-->
+        <!-- Header Start -->
+        <div id="header">
+          <div class="logo">
+            <a href="/"><img src="{{ THEME_URL }}media/images/logo.png" border="0" alt="" /></a>
+            </div>
+            <div class="rightside">
+              <div class="textdiv">
+                <p>123-456-7890</p>
+                </div>
+                <form method="post" action="">
+                  <input type="text" name="" onfocus="this.value=''" value="Search" class="searchbox" />
+                    <input type="submit" name="" value="" class="gobtn" />
+                </form>
+            </div>
+            
+            <!-- Nav Start -->
+            <div id="nav">
+			{% nav 2 %}
+                <div class="logindiv">
+                  <ul>
+                      <li><img src="{{ THEME_URL }}media/images/login_img.png" border="0" alt="" class="img" /><a href="/en">Login</a></li>
+                    <li class="nobg"><a href="#">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div><!-- Nav End -->
+            
+        </div><!-- Header End -->

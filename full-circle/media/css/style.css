@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+* { margin:0; padding:0;}
+body { margin:0; padding:0; background:#e6e6e6; font-family:Arial, Helvetica, sans-serif;}
+:focus { outline:none;}
+.clr { clear:both;}
+.fl { float:left;}
+.fr { float:right;}
+ul, li { list-style:none;}
+a { text-decoration:none;}
+a img { border:none;}
+
+#background { width:100%; background:url(../images/body_bg.png) repeat-y center top;}
+
+#wrap { width:1000px; margin:0 auto; padding:0;}
+
+#header { width:948px; margin:0 26px 0 26px; padding:0; float:left; height:175px;}
+#header .logo { margin:15px 0 0 30px; padding:0; float:left;}
+#header .logo a { margin:0; padding:0;}
+
+#header .rightside { min-width:400px; margin:30px 0 0 0; padding:0; float:right; overflow:hidden;}
+#header .rightside .textdiv { margin:0; padding:0; float:left;}
+#header .rightside p { margin:0; padding:5px 0 0 0; font-size:18px; color:#009188; font-weight:bold; float:left;}
+#header .rightside .searchbox { width:183px; height:30px; background:url(../images/searchbox.png) no-repeat left top; float:left; border:none; line-height:30px; margin:0 0 0 10px; padding:0 10px 0 20px; color:#bebebe; font-size:12px; font-style:italic;}
+#header .rightside .gobtn { width:64px; height:30px; margin:0; padding:0; float:left; border:none; cursor:pointer; background:url(../images/gobtn.png) no-repeat left top; }
+
+#nav { width:948px; margin:15px 0 0 0; padding:0; float:left;}
+#nav ul { margin:0; padding:0;}
+#nav ul li { display:block; margin:0; padding:0 20px; height:20px; list-style:none; float:left; background:url(../images/sep_1.png) no-repeat right 2px;}
+#nav ul li.nobg { background:none;}
+#nav ul li.nopadding { padding-left:0;}
+#nav ul li a { display:block; margin:0; padding:0; float:left; font-size:16px; color:#505050;}
+
+#nav .logindiv { margin:0; padding:0; float:right;}
+#nav .logindiv ul { margin:0; padding:0;}
+#nav .logindiv ul li { display:block; margin:0; padding:0 20px; height:20px; list-style:none; float:left; background:url(../images/sep_1.png) no-repeat right 2px;}
+#nav .logindiv ul li .img { margin:2px 10px 0 0; padding:0; float:left; }
+#nav .logindiv ul li a { display:block; margin:0; padding:0; float:left; font-size:16px; color:#009188;}
+#nav .logindiv ul li.nobg { background:none; padding-right:0;}
+
+
+#gallery { width:916px; height:298px; margin:0 0 0 41px; padding:0; float:left; border:solid 1px #e6e6e6; position:relative;}
+#gallery .gallery_img { width:916px; height:298px; margin:0; padding:0;}
+/*#gallery .textdiv { width:400px; margin:0; padding:0; position:absolute; left:30px; top:25px;}
+#gallery .textdiv h2 { font-size:40px; margin:0; padding:0; color:#fff; font-family: 'LeagueGothicRegular'; font-weight:normal;}
+#gallery .textdiv p { font-size:14px; margin:0; padding:5px 0 0 0; color:#fff;}
+#gallery .textdiv a { margin:10px 0 0 0; display:inline-block; padding:0; font-size:14px; color:#f18e57; font-style:italic;}*/
+
+#gallery .caption .textdiv { width:400px; margin:0px; padding:0; position:absolute; left:30px; top:25px;}
+#gallery .caption .textdiv h2 { font-size:40px; margin:0; padding:0; color:#fff; font-family: 'LeagueGothicRegular'; font-weight:normal;}
+#gallery .caption .textdiv p { font-size:14px; margin:0; padding:5px 0 0 0; color:#fff;}
+#gallery .caption .textdiv p a { margin:10px 0 0 0; display:inline-block; padding:0; font-size:14px; color:#f18e57; font-style:italic;}
+/*#gallery .pagginastion { margin:0; padding:0; position:absolute; right:30px; bottom:20px;}
+#gallery .pagginastion ul { margin:0; padding:0;}
+#gallery .pagginastion ul li { display:block; float:left; margin:0; padding:0 8px; list-style:none;}
+#gallery .pagginastion ul li a { display:block; margin:0; padding:0; float:left; width:16px; height:16px; background:url(../images/ancer_bg.png) no-repeat left top;}
+#gallery .pagginastion ul li a:hover { background:url(../images/ancer_bg_hover.png) no-repeat left top;}
+
+.pagginastion { margin:0; padding:0; position:absolute; right:30px; bottom:20px;}*/
+.pagginastion { top: 470px; right: 345px; position: absolute; z-index: 99; }
+.pagginastion  a { display: block; background: url(../images/ancer_bg.png)  no-repeat; width: 22px; height: 22px; text-indent: -9999px; float:right; margin:2.5px; }
+.pagginastion  a.activeSlide { display: block; background:  url(../images/ancer_bg_hover.png) no-repeat; width: 22px; height: 22px;  text-indent: -9999px; float:right; margin:2.5px;}
+.pagginastion ul { margin:0; padding:0;}
+.pagginastion ul li { display:block; float:left; margin:0; padding:0 8px; list-style:none;}
+.pagginastion ul li a { display:block; margin:0; padding:0; float:left; width:16px; height:16px; background:url(../images/ancer_bg.png) no-repeat left top;}
+.pagginastion ul li a:hover { background:url(../images/ancer_bg_hover.png) no-repeat left top;}
+
+#section_1 { width:1292px; height:325px; background:url(../images/greenbg.png) no-repeat center top; margin:0 0 0 -146px; padding:0; float:left;}
+#section_1 .innar { width:948px; height:325px; margin:0 172px 0 172px; padding:0; } 
+#section_1 .innar .col_1 { width:295px; margin:40px 0 0 0; padding:0; float:left;}
+#section_1 .innar .col_2 { width:295px; margin:40px 31px 0 31px; padding:0; float:left;}
+#section_1 .innar .imgbg { width:293px; height:98px; border:solid 1px #009188; margin:0; padding:0;}
+#section_1 .innar .imgbg .img { margin:0; padding:0;}
+#section_1 .innar h2 { margin:0; padding:10px 0 0 0; font-size:40px; color:#fff; font-family: 'LeagueGothicRegular'; font-weight:normal;}
+#section_1 .innar p { margin:0; padding:0; font-size:14px; color:#00615a; }
+#section_1 .innar a { margin:0; display:inline-block; padding:0; font-size:14px; font-style:italic; color:#ad4500; }
+
+
+#container { width:948px; margin:0 26px; padding:10px 0 20px 0; overflow:hidden; float:left;}
+
+#content { width:948px; margin:0; padding:0 26px; float:left; overflow:hidden;}
+#content h1 { margin:0; padding:0; font-size:40px; color:#00615a; font-family: 'LeagueGothicRegular'; font-weight:normal;}
+#content p { margin:0; padding:0; font-size:14px; color:#505050; line-height:20px;}
+#content .t { width: 55%;}
+#content .t .page-wrap { float: left;}
+
+#post { width:547px; margin:0; padding:0 20px 0 0; float:left; overflow:hidden; border-right:solid 1px #d7eeed;}
+#post .leftimg { width:207px; height:258px; margin:5px 10px 0 0; border:solid 1px #4bb1ab; padding:0; float:left;}
+#post a { margin:0; padding:0; font-size:14px; color:#ef6100; display:inline-block; font-style:italic;}
+
+#sidebar { width:347px; margin:0 0 0 -1px; padding:0 0 0 33px; float:right; overflow:hidden; border-left:solid 1px #d7eeed;}
+#sidebar .temadiv { margin:0; padding:0; overflow:hidden;}
+#sidebar .temadiv .listdiv { margin:0; padding:0; overflow:hidden;}
+#sidebar .temadiv .listdiv_2 { margin:40px 0 0 0; padding:0; overflow:hidden;}
+#sidebar .temadiv .img { margin:5px 5px 10px 0; padding:0; float:left; border:solid 1px #009188; width:88px; height:84px;}
+#sidebar .temadiv h3 { margin:0; padding:0; font-family: 'LeagueGothicRegular'; font-weight:normal; font-size:30px; color:#f18e57;}
+#sidebar .temadiv h3 a { margin:0; padding:0; font-family: 'LeagueGothicRegular'; font-weight:normal; font-size:30px; color:#f18e57; text-transform:uppercase;}
+#sidebar .temadiv h6 { margin:0; padding:0; font-weight:normal; font-size:14px; color:#00615a; font-style:italic;}
+#sidebar .temadiv p { margin:0; padding:0; font-weight:normal; font-size:14px; color:#505050; }
+#sidebar .temadiv p a { margin:0; padding:0; font-weight:normal; font-size:14px; color:#505050; }
+
+
+
+#footer { width:1000px; margin:0; padding:0 0 20px 0; float:left; overflow:hidden; background:#f18e57;}
+#footer .socialdiv { margin:20px 0 0 26px; padding:0; float:left;}
+#footer .socialdiv a { margin:0 17px 0 0 ; padding:0; float:left;} 
+#footer .socialdiv a.nomargin { margin:0 ; padding:0; float:left;} 
+#footer .rightside { margin:20px 26px 0 0; padding:0; float:right; width:720px;}
+#footer .rightside ul { margin:5px 0 0 0; padding:0; float:right;}
+#footer .rightside ul li { display:block; margin:0; padding:0 5px; list-style:none; float:left; background:url(../images/sep_2.png) no-repeat right 2px; font-size:12px; color:#fff;}
+#footer .rightside ul li.nobg { background:none; padding-right:0;}
+#footer .rightside ul li a { margin:0; padding:0; float:left; display:block; font-size:12px; color:#fff;}
+
+
+
+
+
+
+
+
