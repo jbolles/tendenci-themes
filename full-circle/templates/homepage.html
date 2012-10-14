@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <!-- Tendenci Specific Load Tags
 ================================================== -->
+=======
+{% comment %}
+Full Circle - homepage.html
+{% endcomment %}
+
+>>>>>>> updated Full circle theme with spaces and new CSS/stylesheet information so that full circle is a more workable theme.
 {% load base_filters %}
 {% load base_tags %}
 {% load theme_tags %}
@@ -12,6 +19,7 @@
 {% load mobile_tags %}
 {% load nav_tags %}
 {% load staff_tags %}
+{% load i18n %}
 
 <!-- Extends Tendenci Base Structure
 ================================================== -->
@@ -54,6 +62,7 @@
 {% block html_body %}
 
 <div id="background">
+<<<<<<< HEAD
 
   <div id="header-container">
     <div class="container sixteen columns">
@@ -119,6 +128,98 @@
   <section id="footer">
     {% theme_include "footer.html" %} <!-- Pulls in the Footer Document -->
   </section><!-- /#footer -->
+=======
+  <div id="wrap">
+
+     
+       <header>
+            {% spaceless %}{% theme_include "header.html" %}{% endspaceless %}
+        </header>
+    
+          
+
+                          <div id="gallery-wrap">
+                            <!-- Gallery Start-->
+                            <div class="pager"></div>
+                            <div id="gallery">
+                             
+                              {% list_stories as stories_list limit=4 tags="rotator" %}
+                              {% for story in stories_list %}
+                                <div class="gallery_img">
+                                  <img src="{% image_url story.image size=916x298 %}" border="0" alt="{{ story.title|striptags }}" />
+                                
+                                <div class="caption">
+                                  <div class="textdiv">
+                                        <h2>{{ story.title }}</h2>
+                                        <p>{{ story.content|striptags|safe|truncatewords:"20" }}<a href="{{ story.full_story_link }}">&nbsp;Read More &raquo;</a></p>
+                                  </div>
+                                </div><!-- /caption --></div>
+                              {% endfor %}         
+                                    
+                            </div><!-- Gallery End -->
+                           
+                        </div><!-- /gallery-wrap -->
+        
+        <div id="section_1">
+            <div class="innar">
+                <div class="col_1">
+                    <div class="imgbg">
+                        <div class="img">
+                          <div class="space">
+                            {% space_include MODULE_THEME_SPACE_1 %}
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col_1 col_2">
+                    <div class="imgbg">
+                        <div class="img">
+                          <div class="space">
+                            {% space_include MODULE_THEME_SPACE_2 %}
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col_1">
+                    <div class="imgbg">
+                        <div class="img">
+                          <div class="space">
+                            {% space_include MODULE_THEME_SPACE_3 %}
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+    </div>
+        
+        <!--Container Start  -->
+        <div id="container">
+            
+            <!---Content Start -->
+            <div id="content">
+                
+<div style="display: inline-block;">               <!--Post Start  -->
+                <div id="post">
+                  <div class="space">
+                    {% space_include MODULE_THEME_SPACE_4 %}
+                  </div></div>
+                     <!--<a href="#">Read more »</a>-->
+            
+<div style="display: inline-block;"><div id="sidebar">
+  <div class="space">{% theme_include "sidebar.html" %}</div></div></div>
+                </div><!--Post End -->      
+            </div><!---Content End -->
+            
+        </div><!---Container End -->
+       
+
+        <footer>
+          {% spaceless %}{% theme_include "footer.html" %}{% endspaceless %}
+    </footer></div>
+    <div class="clr">
+  </div><!-- /wrap -->
+</div><!-- /background -->                
+>>>>>>> updated Full circle theme with spaces and new CSS/stylesheet information so that full circle is a more workable theme.
 
 </div><!-- /#background -->
 <!-- End Document
@@ -132,12 +233,21 @@
 <script type="text/javascript">
 $(document).ready(function() {
   $('input[title!=""]').hint();
+<<<<<<< HEAD
   $("#rotator").cycle({
     timeout: 8000,
     speed: 2000,
     pager: '#stories-pager',
     pagerEvent: 'mouseover'
   });
+=======
+     $("#gallery").cycle({
+            timeout: 8000,
+            speed: 2000,
+            pager: '.pagginastion',
+            pagerEvent: 'mouseover'
+        });
+>>>>>>> updated Full circle theme with spaces and new CSS/stylesheet information so that full circle is a more workable theme.
 });
 </script>
 
