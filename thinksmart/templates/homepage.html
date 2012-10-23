@@ -65,7 +65,7 @@
         {% list_stories as featured_list limit=3 tags="featured" %}
         {% for story in featured_list %}
             <div class="featured-box{% if forloop.last %} last{% endif %}">
-                <a href="{{ story.full_story_link }}"><img src="{% image_url story.photo size=72x72 crop=true quality=90 %}" alt="{{ story.title }} at {{ SITE_GLOBAL_SITEDISPLAYNAME }}" />
+                <a href="{{ story.full_story_link }}"><img src="{% image_url story.image size=72x72 crop=true quality=90 %}" alt="{{ story.title }} at {{ SITE_GLOBAL_SITEDISPLAYNAME }}" />
                 <span>{{ story.title }}</span></a>
             </div>
         {% empty %}
