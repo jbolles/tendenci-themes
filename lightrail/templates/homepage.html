@@ -34,7 +34,6 @@ Lightrail Theme - homepage.html
     <div class="container clearfix">
         <div id="masonry" class="clearfix">
             {% list_stories as masonry_stories limit=40 tags="homepage" %}
-
             {% for story in masonry_stories %}
                 <!-- {% cycle 's600x400' 's400x400' 's250x400' 's250x250' 's400x250' as size %} -->
                 <div class="masonry-item {{ size }}">
@@ -48,9 +47,17 @@ Lightrail Theme - homepage.html
                         <div class="story-title-large">{{ story.title }}</div>
                     {% endif %}
                     </a>
+                    {% if admin %}
+                        <div class="admin-inline">
+                            <div class="admin-links clear-block"><a href="{% url story.edit story.pk %}?next={{ request.path }}" title="Edit Story" class="edit-story">Edit {{ story.title|title }} Story</a></div>
+                        </div>
+                    {% endif %}
                 </div><!-- /.masonry-item -->
             {% endfor %}
         </div><!-- /#masonry -->
+        {% if admin %}
+            <div><a href="{% url story.add %}?tags=homepage">Admin: Add Stories tagged 'homepage' to show in a grid layout above</a></div>
+        {% endif %}
     </div><!-- /.container -->
 
     <div class="container">
