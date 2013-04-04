@@ -1,0 +1,206 @@
+<!-- Tendenci Specific Load Tags
+================================================== -->
+{% load base_filters %}
+{% load base_tags %}
+{% load theme_tags %}
+{% load cache %}
+{% load story_tags %}
+{% load video_tags %}
+{% load video_filters %}
+{% load box_tags %}
+{% load locations_tags %}
+{% load mobile_tags %}
+
+<!-- Extends Tendenci Base Structure
+================================================== -->
+{% theme_extends "base.html" %}
+
+{% block extra_head %}
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!-- Favicons
+================================================== -->
+  <link rel="shortcut icon" href="{{ THEME_URL }}media/images/favicon.ico">
+
+<!-- CSS
+================================================== -->
+  <link rel='stylesheet' href="{{ THEME_URL }}media/css/skeleton.css" type="text/css"/>
+  <link rel="stylesheet" href="{{ THEME_URL }}media/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="{{ THEME_URL }}media/fonts/fonts.css" type="text/css" />
+    
+<!-- IE Specific Compatibility
+================================================== -->
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>   
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+{% endblock extra_head %}
+
+{% block body_ids %}home{% endblock %}
+{% block body_classes %}home{% endblock body_classes %}
+
+<!-- Primary Page Layout
+================================================== -->
+{% block html_body %}
+  <div id="header-container">
+    <div class="container">
+      {% theme_include "header.html" %} <!-- Pulls in the Header Document -->
+    </div><!-- /.container sixteen columns -->
+  </div><!-- /#header-container -->
+
+  <div id="bannerdiv">
+    <div class="container">
+    <div id="rotator-container">
+      <div id="rotator-wrap">
+          <div id="rotator">
+            {% list_stories as stories_list limit=5 tags="rotator" quality="90" %}
+            {% for story in stories_list %}
+              <div class="rotator-item">
+                <div class="rotator-image">
+                   <a href="{{ story.full_story_link }}"><img src="{% image_url story.image size=920x400 crop=True quality=90 %}" alt="{{ story.title }}" /></a>
+                    <div class="rotator-content">
+                      <h1><a href="{{ story.full_story_link }}">{{ story.title }}</a></h2>
+                      <p>{{ story.content|safe|truncatewords:15 }}
+                      <a class="readmore" href="{{ story.full_story_link }}">Read More &raquo;</a></p>
+                    </div><!-- /.rotator-content-->
+                </div><!-- /.rotator-image-->
+              </div><!-- /.rotator-item -->
+            {% endfor %}
+          </div><!-- /#rotator-->
+          <div id="stories-pager"></div>
+      </div><!-- /#rotator-wrap -->
+    </div><!-- /#rotator-container-->
+
+    <div class="rightshop">
+      <h1>MORE THAN JUST another COFFEE SHOP.</h1>
+      <h2>WELCOME TO JACKALOPE JAVA.</h2>
+      <p>Enjoy authentic European and south american coffee blends and pastries at our various locations found situated in the heart of New York City and throughout the downtown Artists District.</p>
+      <h6>Serving Breakfast, Lunch, and Dinner</h6>
+      <div class="col_1">
+        <p>New Hours <br />Monday to Thursday 9:30am to 10pm Friday &amp; Saturday 9:30am to Midnight</p>
+      </div>
+      <a href="/">SEE OUR MENU NOW</a>
+    </div><!-- /.rightshop-->
+
+    </div><!-- /.container-->
+  </div><!-- /#bannerdiv-->
+
+  <section id="home-content" class="clearfix">
+    {% theme_include "base/messages.html" %} <!--Pulls in the Alert Messages within Tendenci Core-->
+    <div id="home-body" class="clearfix">
+    
+     <div class="box-row">
+       <div class="container">
+         <div class="box-col">
+           {% box 4 %}
+         </div><!--/.box-col -->
+         <div class="box-col">
+           {% box 5 %}
+         </div><!--/.box-col -->
+         <div class="box-col">
+           {% box 6 %}
+         </div><!--/.box-col -->
+         <div class="box-col">
+           {% box 11 %}
+         </div><!--/.box-col -->
+       </div><!--/.container -->
+     </div><!--/.box-row -->
+
+     <div class="info-row">
+       <div class="container">
+         <div class="video-col">
+           <h2>Featured Video</h2>
+           {% list_videos as videos_list limit=1 tags="featured"  %}
+           {% for video in videos_list %}
+           <div class="video">
+               <a href="{{ video.get_absolute_url }}">{{ video|video_embed:"308" }}</a>
+           </div>
+           <div class="video-info">
+             <h3>{{ video.title }}</h3>
+             <p>{{ video.description|striptags|truncatewords:"100"|safe }} <a href="{{ video.get_absolute_url }}">View Video</a></p>
+           </div>
+           {% endfor %}
+         </div><!--/.video-col -->
+         <div class="location-col">
+           <h2>Our Locations</h2>
+           <ul>
+           {% list_locations as location_list limit=3 %}
+           {% for location in location_list %}
+             <li>
+             {% if forloop.first %}
+               <div class="mapimg">
+                 <img src="http://maps.googleapis.com/maps/api/staticmap?center={{ location.latitude }},{{ location.longitude }}&size=200x200&markers=color:red|label:A|{{ location.latitude }},{{ location.longitude }}&zoom=8&sensor=false">
+               </div>
+             {% endif %}
+                <strong>{{ forloop.counter }}</strong>
+                <p>{{ location }} - {{ location.get_address }}</p>
+             </li>
+           {% endfor %}
+           </ul>
+         </div><!--/.location-col -->
+       </div><!--/.container -->
+     </div><!--/.info-row -->
+
+    </div><!-- /#home-body -->
+  </section><!--/#home-content -->
+        
+  <section id="footer">
+    {% theme_include "footer.html" %} <!-- Pulls in the Footer Document -->
+  </section><!-- /#footer -->
+
+<!-- End Document
+================================================== -->
+{% endblock html_body %}
+
+{% block extra_body %}
+
+<script src="{{ THEME_URL }}media/js/jquery.hint.js" type="text/javascript"></script>
+<script src="{{ THEME_URL }}media/js/jquery.cycle.all.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('input[title!=""]').hint();
+  $("#rotator").cycle({
+    fx: 'scrollLeft',
+    timeout: 8000,
+    speed: 1000,
+    pager: '#stories-pager',
+    pagerEvent: 'mouseover',
+  });
+  $('.box-row .box-col p>img').each(function(){
+    $(this).parent().addClass('p-img');
+  });
+  $('.box-row .box-col p>a').each(function(){
+    $(this).parent().addClass('p-a');
+  });
+});
+</script>
+
+<!--[if lt IE 7 ]>
+    <script src="{{ THEME_URL }}media/js/dd_belatedpng.js"></script>
+    <script> DD_belatedPNG.fix('img, .png_bg');</script>
+<![endif]-->
+
+<div id="fb-root"></div>
+<script>
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+
+<script>
+    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
+{% endblock %}
