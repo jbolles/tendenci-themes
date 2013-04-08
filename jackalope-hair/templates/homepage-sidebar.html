@@ -1,0 +1,57 @@
+<!-- Sidebar Start -->
+{% load base_filters %}
+{% load event_tags %}
+<div id="sidebar">
+    <div id="events-bar">
+        <div class="heading">
+            <h3>Upcoming Events</h3>
+        </div>
+        <div class="detail">
+            <ul>
+             {% list_events as events_list limit=5 %}
+             {% for event in events_list %}
+             <li>
+               <p><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></p>
+               <p>{{ event.start_dt|date:"F d, g:i A" }}</p>
+               <p>{{ event.description|striptags|truncatewords:"15"|safe }} <a class="read-more" href="{{ event.get_absolute_url }}">Read more</a></p>
+             </li>
+             {% endfor %}
+           </ul>
+        </div>
+    </div><!--#events-bar-->
+
+
+    {% if not request.user.is_authenticated %}
+    <div id="login-bar">
+        <h2>MEMBER LOGIN</h2>
+        <form class="sidebar-form clearfix" method="post" action="/accounts/login/">{% csrf_token %}
+            <input type="text" name="username" onfocus="this.value=''" value="Username" class="textbox" />
+            <input type="password" name="password" onfocus="this.value=''" value="Password" class="textbox" />
+        </form>
+        <div class="separator"></div>
+        <a href="/accounts/register/">BECOME AN EXCLUSIVE MEMBER >></a>
+    </div><!--#login-bar-->
+    {% endif %}
+
+    <div id="deal-bar">
+        <div class="img">
+            <img src="{{ THEME_URL }}media/images/img_3.jpg" border="0" alt="" />
+        </div>
+        <div class="textdiv">
+            <a href="/">CLICK HERE</a>
+            <p>FOR OUR DEAL OF THE DAY</p>
+        </div>
+    </div><!--#deal-bar-->
+
+    <div id="social-bar">
+        <div class="heading">
+            <h3>CONNECT WITH US</h3>
+        </div>
+        <div class="detail">
+            <a href="/"><img src="{{ THEME_URL }}media/images/facebook_icon.png" border="0" alt="" /></a>
+            <a href="/"><img src="{{ THEME_URL }}media/images/twitter_icon.png" border="0" alt="" /></a>
+            <a href="/"><img src="{{ THEME_URL }}media/images/digg_icon.png" border="0" alt="" /></a>
+        </div>
+    </div><!--#social-bar-->
+
+</div><!--Sidebar End -->
