@@ -1,7 +1,40 @@
+/*   
+Theme Name: Full Circle
+Theme URI: http://tendenci.com/
+Description: Community Template Theme design for Tendenci
+Designer: outsourced
+Designer URI: http://schipul.com
+Developer: Sarah M Worthy
+Developer URI: http://schipul.com
+Version: 1.2
+*/
+
+/* ------------------------------
+Theme Color Guide
+------------------------------
+
+Htag fonts (light orange): #f18e57
+@alink: #f18e57
+@ahover: #f18e57
+Minty-Green color: #009188
+Nav Grey-Charcoal color: #505050
+Dark Green in homepage spaces: #00615a
+
+
+
+*/
+
 @charset "utf-8";
 
+<<<<<<< HEAD
 /* RESET HTML
 ================================================== */
+=======
+/* ------------------------------
+    Reset HTML
+------------------------------ */
+
+>>>>>>> updated Full circle theme with spaces and new CSS/stylesheet information so that full circle is a more workable theme.
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, img, ins, kbd, q, samp,
@@ -24,6 +57,7 @@ footer, header, hgroup, menu, #menu, section {
   display: block;
 }
 
+<<<<<<< HEAD
 /* BASE HTML
 ================================================== */
 body { margin:0; padding:0; background:#e6e6e6; font:13px/1.25  sans-serif; *font-size: small; font-family:Arial, Helvetica, sans-serif;}
@@ -36,6 +70,16 @@ h4, h4 a  { font-size: 26px;  line-height: 30px;  text-decoration: none;  margin
 a { color:#ad4500; text-decoration:none;}
 a:hover { text-decoration: underline; }
 a:visited, a:active { }
+=======
+
+/* ------------------------------
+    Base HTML Elements
+------------------------------ */
+* {margin:0; padding:0;}
+
+body { background: #e6e6e6; font-family: Helvetica, Arial, sans-serif; color: @text; margin: 0; padding:0; }
+
+>>>>>>> updated Full circle theme with spaces and new CSS/stylesheet information so that full circle is a more workable theme.
 :focus { outline:none;}
 .clr { clear:both;}
 .fl { float:left;}
@@ -43,8 +87,45 @@ a:visited, a:active { }
 ul, li { list-style:none;}
 a img { border:none;}
 
+h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a { font-family: 'LeagueGothicRegular', sans-serif; text-transform: uppercase; font-weight: 300; color: #f18e57; }
+
+h1, h1 a { font-size: 32px; line-height: 34px; text-decoration: none; margin-bottom: 10px; }
+h2, h2 a { font-size: 30px; line-height: 32px; text-decoration: none; margin-bottom: 10px; }
+h3, h3 a { font-size: 26px; line-height: 30px; text-decoration: none; margin-bottom: 10px; }
+h4, h4 a,
+h5, h5 a,
+h6, h6 a { font-size: 16px; line-height: 18px; text-decoration: none; margin-bottom: 6px; }
+
+p { font-size:14px; margin-bottom: 14px; line-height: 20px; color:#505050; }
+
+a { color: #f18e57; }
+a:hover { color: #f18e57; }
+a:visited, a:active { color: #f18e57; }
+
+
+ul, ol { margin: 0 0 10px 24px; }
+ol { list-style-type: decimal; }
+
+select, input, textarea, button { font:99% sans-serif; }
+pre, code, kbd, samp { font-family: monospace, sans-serif; margin-bottom: 10px; padding: 8px; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; }
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+blockquote { margin: 0 0 10px 20px; }
+
+/* ------------------------------
+    Base Layout
+------------------------------ */
+
 #background { width:100%; background:url(../images/body_bg.png) repeat-y center top;}
 
+<<<<<<< HEAD
 /* HEADER STYLES
 ================================================== */
 
@@ -155,3 +236,144 @@ footer .rightside ul { margin:5px 0 0 0; padding:0; float:right;}
 footer .rightside ul li { display:block; margin:0; padding:0 5px; list-style:none; float:left; background:url(../images/sep_2.png) no-repeat right 2px; font-size:12px; color:#fff;}
 footer .rightside ul li:last-child { background:none; padding-right:0;}
 footer .rightside ul li a { margin:0; padding:0; float:left; display:block; font-size:12px; color:#fff;}
+=======
+#wrap { width:1000px; margin:0 auto; padding:0;}
+
+#header { width:948px; margin:0 26px 0 26px; padding:0; height:175px;}
+#header .logo { margin:15px 0 0 30px; padding:0; float:left;}
+#header .logo a { margin:0; padding:0;}
+
+#header .rightside { min-width:400px; margin:30px 0 0 0; padding:0; float:right;}
+#header .rightside .textdiv { margin:0; padding:0; float:left;}
+#header .rightside p { margin:0; padding:5px 0 0 0; font-size:18px; color:#009188; font-weight:bold; float:left;}
+#header  .rightside .searchbox { width:183px; height:30px;  background:url(../images/searchbox.png) no-repeat left top; float:left;  border:none; line-height:30px; margin:0 0 0 10px; padding:0 10px 0 20px;  color:#bebebe; font-size:12px; font-style:italic;}
+#header  .rightside .gobtn { width:64px; height:30px; margin:0; padding:0;  float:left; border:none; cursor:pointer;  background:url(../images/gobtn.png) no-repeat left top; }
+
+#nav { display: block; height: 35px; width: 947px; position: relative; z-index: 1000; float: left; }
+#nav .block .content { margin: 0; padding: 0;}
+#nav h2 { display: none; }
+#nav ul { list-style: none; padding: 0; margin: 0; }
+#nav ul li { float: left;  position: relative; }
+#nav ul li a { display: block; color: #505050; text-decoration: none; padding: 8px 20px 9px 20px; }
+#nav ul li ul li a {padding: 8px 14px 8px 14px;}
+#nav ul li ul li ul li a {padding: 8px 19px 8px 19px;}
+#nav ul li a:hover { background: #ffffff; }
+#nav ul ul { display: none; position: absolute; top: 33px; left: 0; width: 160px; z-index: 999; }
+#nav  ul ul a { width: 132px;  border-top: 1px solid #505050;/* Remember to  subtract the padding width from line 8 from the width you set on the ul  */  }
+#nav ul ul a:hover {background: #B2A56D; }
+#nav ul ul ul { position: absolute; top: 0; left: 160px; }
+
+#nav  ul ul ul, #nav ul ul ul ul, #nav ul li:hover ul ul, #nav ul li:hover ul  ul, #nav ul li:hover ul ul ul { display: none; background: #ffffff; }
+#nav ul li:hover ul, #nav ul ul li:hover ul, #nav ul ul ul li:hover ul { display: block; background: #ffffff; }
+
+#nav .logindiv { margin:0; padding:8px 0 0 0; float:right;}
+#nav .logindiv ul { margin:0; padding:0;}
+#nav  .logindiv ul li { display:block; margin:0; padding:0 20px; height:20px;  list-style:none; float:left; background:url(../images/sep_1.png)  no-repeat right 2px;}
+#nav .logindiv ul li .img { margin:2px 10px 0 0; padding:0; float:left; }
+#nav .logindiv ul li a { display:block; margin:0; padding:0; float:left; font-size:16px; color:#009188;}
+#nav .logindiv ul li.nobg { background:none; padding-right:0;}
+
+
+#footer { width:1000px; margin:0; padding:0 0 20px 0; float:left; background:#f18e57;}
+#footer .socialdiv { margin:20px 0 0 26px; padding:0; float:left;}
+#footer .socialdiv a { margin:0 17px 0 0 ; padding:0; float:left;}
+#footer .socialdiv a.nomargin { margin:0 ; padding:0; float:left;}
+#footer .rightside { margin:20px 26px 0 0; padding:0; float:right; width:720px;}
+#footer .rightside ul { margin:5px 0 0 0; padding:0; float:right;}
+#footer  .rightside ul li { display:block; margin:0; padding:0 5px;  list-style:none; float:left; background:url(../images/sep_2.png)  no-repeat right 2px; font-size:12px; color:#fff;}
+#footer .rightside ul li.nobg { background:none; padding-right:0;}
+#footer .rightside ul li a { margin:0; padding:0; float:left; display:block; font-size:12px; color:#fff;}
+
+/* ------------------------------
+    Homepage Content
+------------------------------ */
+
+
+#gallery { width:916px; height:298px; margin:0 0 0 41px; padding:0; float:left; border:solid 1px #e6e6e6; position:relative;}
+#gallery .gallery_img { width:916px; height:298px; margin:0; padding:0;}
+/*#gallery .textdiv { width:400px; margin:0; padding:0; position:absolute; left:30px; top:25px;}
+#gallery .textdiv h2 { font-size:40px; margin:0; padding:0; color:#fff; font-weight:normal;}
+#gallery .textdiv p { font-size:14px; margin:0; padding:5px 0 0 0; color:#fff;}
+#gallery .textdiv a { margin:10px 0 0 0; display:inline-block; padding:0; font-size:14px; color:#f18e57; font-style:italic;}*/
+
+#gallery .caption .textdiv { width:400px; height 135px; margin:0px; padding:5px 5px 5px 10px; position:absolute; left:30px; top:25px;}
+#gallery .caption .textdiv h2 { font-size:30px; margin:0; padding:0; color:#fff;font-weight:normal;}
+#gallery .caption .textdiv p { font-size:14px; margin:0; padding:5px 0 0 0; color:#fff;}
+#gallery .caption .textdiv p a { margin:10px 0 0 0; display:inline-block; padding:0; font-size:14px; color:#f18e57; font-style:italic;}
+/*#gallery .pager { margin:0; padding:0; position:absolute; right:30px; bottom:20px;}
+#gallery .pager ul { margin:0; padding:0;}
+#gallery .pager ul li { display:block; float:left; margin:0; padding:0 8px; list-style:none;}
+#gallery .pager ul li a { display:block; margin:0; padding:0; float:left; width:16px; height:16px; background:url(../images/ancer_bg.png) no-repeat left top;}
+#gallery .pager ul li a:hover { background:url(../images/ancer_bg_hover.png) no-repeat left top;}
+
+
+#gallery-wrap { position: relative; }
+
+/*.pager { margin:0; padding:0; position:absolute; right:30px; bottom:20px;}*/
+.pager { top: 400px; left: 350px; position: absolute; z-index: 99; }
+.pager  a  { display: block; background: url(../images/ancer_bg.png)  no-repeat;  width: 22px; height: 22px; text-indent: -9999px; float:right;  margin:2.5px; }
+.pager  a.activeSlide {  display: block; background:  url(../images/ancer_bg.png)  no-repeat; width: 22px; height: 22px;  text-indent: -9999px;  float:right; margin:2.5px;}
+.pager ul { margin:0; padding:0;}
+.pager ul li { display:block; float:left; margin:0; padding:0 8px; list-style:none;}
+.pager  ul li a { display:block; margin:0; padding:0; float:left; width:16px;  height:16px; background:url(../images/ancer_bg.png) no-repeat left top;}
+.pager ul li a:hover { background:url(../images/ancer_bg_hover.png) no-repeat left top;}
+
+/*.pagginastion { margin:0; padding:0; position:absolute; right:30px; bottom:20px;}*/
+/*.pagginastion { top: 470px; right: 345px; position: absolute; z-index: 99; }*/
+
+
+#section_1 { width:1292px; height:325px;  background:url(../images/greenbg.png) no-repeat center top; margin:0 0 0  -146px; padding:0; float:left;}
+#section_1 .innar { width:948px; height:325px; margin:0 172px 0 172px; padding:0; }
+#section_1 .innar .col_1 { width:295px; margin:40px 0 0 0; padding:0; float:left;}
+#section_1 .innar .col_2 { width:295px; margin:40px 31px 0 31px; padding:0; float:left;}
+#section_1 .innar .imgbg { width:293px; border:solid 1px #009188; margin:0; padding:0;}
+#section_1 .innar .imgbg .img { margin:0; padding:0;}
+#section_1 .innar h2, h3 { margin:0; padding:0; }
+#section_1 .innar p { margin:0; padding:0; color:#00615a; }
+#section_1 .innar a { margin:0; display:inline-block; padding:0; font-style:italic; color:#ad4500; }
+
+
+#container { width:948px; margin:0px 26px; padding:10px 0 20px 0; float:left;}
+
+#content { width:948px; margin:0; padding:0px; float:left;}
+#content  h1,  #content h2, #sidebar h2 { margin:0; padding:0; }
+#content p { margin:0; padding:0; color:#505050; line-height:20px;}
+#content .t { width: 55%;}
+/*#content .t .page-wrap { float: left;}
+.content ul, #content li {margin-left: 15px; }*/
+
+#post { width:547px; margin:0; padding:15px 20px 0 0; float:left; border-right:solid 1px #d7eeed;}
+/*#post .leftimg { width:207px; height:258px; margin:5px 10px 0 0; border:solid 1px #4bb1ab; padding:0; float:left;}*/
+#post a { margin:0; padding:0; color:#f18e57; display:inline-block; font-style:italic;}
+
+/* ------------------------------
+    Body Content
+------------------------------ */
+
+#main-content { width:970px; margin:0; padding:0 0 0 20px; float:left;}
+#main-content  h1, #content h2, #sidebar h2 { margin:0; padding:0; color:#00615a;}
+#main-content p { margin:0; padding:0; font-size:14px; color:#505050; line-height:20px;}
+#main-content .t { width: 90%; float: left; }
+#main-content .t .page-wrap { float: left;}
+#main-content a { color: #00615A; text-decoration: underline; }
+#main-content  h3 a { margin:0; padding:0; text-decoration:  none; text-transform:uppercase;}
+#main-content ul li {margin-left:25px;}
+
+
+/* ------------------------------
+     Sidebar
+------------------------------ */
+
+#sidebar { width:300px; margin:0 0 0 -1px; padding:0 0 0 33px; float:right; border-left:solid 1px #d7eeed;}
+#sidebar .temadiv { margin:0; padding:0; }
+#sidebar .temadiv .listdiv { margin:0; padding:0; }
+#sidebar .temadiv .listdiv_2 { margin:40px 0 0 0; padding:0; }
+#sidebar .temadiv .img { margin:5px 5px 10px 0; padding:0; float:left; border:solid 1px #009188; width:88px; height:84px;}
+#sidebar .temadiv h3 { margin:0; padding:0;}
+#sidebar .temadiv h3 a { margin:0; padding:0; text-transform:uppercase;}
+#sidebar .temadiv h6 a { margin:0; padding:0; color:#00615a; font-style:italic;}
+#sidebar .temadiv p { margin:0; padding:0; color:#505050; }
+#sidebar .temadiv p a { margin:0; padding:0; color:#f18e57; }
+#sidebar h2 { padding: 10px 0 0 0; }
+
+>>>>>>> updated Full circle theme with spaces and new CSS/stylesheet information so that full circle is a more workable theme.
