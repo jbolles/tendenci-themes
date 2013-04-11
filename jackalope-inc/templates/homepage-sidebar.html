@@ -1,0 +1,39 @@
+<!-- Sidebar Start -->
+{% load base_tags %}
+{% load base_filters %}
+{% load event_tags %}
+{% load photo_tags %}
+{% load locations_tags %}
+
+<div id="sidebar">
+    <div id="photos-bar" class="clearfix">
+        <h3>Recent Photos</h3>
+        <ul>
+        {% list_photos as photos_list limit=8 random=True %}
+        {% for photo in photos_list %}
+            <li><a href="{{ photo.get_absolute_url }}"><img alt="{{ photo.title }}" src="{% photo_image_url photo size=75x74 crop=True %}" /></a></li>
+        {% endfor %}
+        </ul>
+    </div><!--#photos-bar-->
+
+    <div id="events-bar">
+        <h3>Upcoming Events</h3>
+        <ul>
+        {% list_events as events_list limit=3 %}
+        {% for event in events_list %}
+            <li><h4><a href="{{ event.get_absolute_url }}">{{ event.start_dt|date:"F d" }} - {{ event.title }}</a></h4>
+            <p>{{ event.description|striptags|truncatewords:"30"|safe }} <a class="read-more" href="{{ event.get_absolute_url }}">Read more</a></p></li>
+        {% endfor %}
+        </ul>
+    </div><!--#events-bar-->
+
+    <div id="location-bar">
+        <h3>Find a Store</h3>
+        {% list_locations as location_list limit=1 %}
+        {% for location in location_list %}
+            <img src="http://maps.googleapis.com/maps/api/staticmap?center={{ location.latitude }},{{ location.longitude }}&size=200x200&markers=color:red|label:A|{{ location.latitude }},{{ location.longitude }}&zoom=8&sensor=false">
+        {% endfor %}
+    </div><!--#location-bar-->
+
+
+</div><!--Sidebar End -->
