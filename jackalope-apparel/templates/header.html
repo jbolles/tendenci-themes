@@ -1,0 +1,31 @@
+{% load nav_tags %}
+{% load box_tags %}
+
+<div id="header" class="clearfix">
+    <div id="header-right-container">
+        <div class="searchdiv">
+            <form method="get" action="/search/">
+                <input type="text" name="q" onfocus="this.value=''" value="BROWSE OUR SITE" class="textbox" />
+                <input type="submit" value="" class="gobtn" />
+            </form>
+        </div>
+        <div class="boxdiv">
+            {% box 3 %}
+        </div>
+    </div><!-- /#header-right-container -->
+</div><!-- /#header -->
+
+<div id="nav-container">
+    <div class="nav-wrap" class="clearfix">
+        <div class="nav-left-container"></div>
+        <div class="nav-main-container">
+            <div class="logo">
+                <a href="/"><img src="{{ THEME_URL }}media/images/logo.png" border="0" alt="" /></a>
+            </div>
+            <div class="nav">
+                {% nav 1 %}
+            </div>
+        </div>
+        <div class="nav-right-container"></div>
+    </div>
+</div>
