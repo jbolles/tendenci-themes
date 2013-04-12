@@ -1,0 +1,83 @@
+<!-- Sidebar Start -->
+{% load base_filters %}
+{% load base_tags %}
+{% load news_tags %}
+{% load staff_tags %}
+
+<div id="sidebar">
+    <div id="search-row">
+        <h3>Search</h3>
+        <form method="get" action="/search/">
+            <input type="text" name="q" onfocus="this.value=''" value="Enter Keyword Here" class="textbox" />
+            <input type="submit" value="" class="gobtn" />
+        </form>
+    </div>
+
+    <div id="news-row">
+        <h3>Recent News</h3>
+        <ul>
+        {% list_news as news_list limit=3 %}
+        {% for news_item in news_list %}
+        <li class="clearfix">
+            <div class="thumbnail">
+            {% if news_item.thumbnail %}
+                <a href="{{ news_item.get_absolute_url }}"><img alt="{{ news_item.headline }}" src="{% image_url news_item.thumbnail size=130x87 crop=true %}"/></a>
+            {% endif %}
+            </div>
+            <h4><a href="{{ news_item.get_absolute_url }}">{{ news_item.headline }}</a></h4>
+            {% if news_item.summary %}
+            <p>{{ news_item.summary|striptags|truncatewords:"20"|safe }}</p>
+            {% else %}
+            <p>{{ news_item.body|striptags|truncatewords:"20"|safe }}</p>
+            {% endif %}
+            <a class="read-more" href="{{ news_item.get_absolute_url }}">Read more ...</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div><!--/#news-row -->
+
+    <div id="staff-row">
+        <h3>Staff</h3>
+        {% list_staff as staff_list limit=1 status=true %}
+        {% for staff in staff_list %}
+
+        {% if staff.stafffile_set.all %}
+        <div class="img">
+          {% for img in staff.stafffile_set.all %}
+          {% if img.photo_type == "featured" %}
+            <div class="member-photo">  
+              <a href="{{ staff.get_absolute_url }}"><img alt="Contact {{ staff.name }}" src="{% url file img.pk %}169x186" /></a>
+            </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="info">
+            <h4>{{ staff.name }}</h4>
+            {% if staff.positions %}
+            <h6>
+            {% for position in staff.positions.all %}
+                {% if forloop.last and forloop.first %}
+                    {{ position }}
+                {% elif forloop.last %}
+                    {{ position }}
+                {% else %}
+                    {{ position }}, 
+                {% endif %} 
+            {% endfor %}
+            </h6>
+            {% endif %}
+            <p>{{ staff.biography|striptags|truncatewords:"30"|safe }}</p>
+            <ul>
+                <li><a href="{{ staff.get_absolute_url }}">Read More About {{ staff.name }}</a></li>
+                {% if staff.email %}
+                <li>{{ staff.email|obfuscate_email:"Contact staff" }}</li>
+                {% endif %}
+                <li><a href="{% url staff %}">Meet the Other Staff</a></li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div><!--/#staff-row -->
+
+</div><!--Sidebar End -->

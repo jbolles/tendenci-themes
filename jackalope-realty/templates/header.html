@@ -1,0 +1,20 @@
+{% load box_tags %}
+{% load nav_tags %}
+
+<div id="header" class="clearfix">
+    <div id="header-top-container">
+        {% box 3 %}
+    </div><!-- /#header-top-container -->
+    <div id="header-left-container">
+        <div class="logo">
+            <a href="/"><img src="{{ THEME_URL }}media/images/logo.png" border="0" alt="" /></a>
+        </div>
+    </div><!-- /#header-left-container -->
+    <div id="header-right-container">
+        <div id="nav">
+            {% nav 1 %}
+        </div>
+    </div><!-- /#header-right-container -->
+</div><!-- /#header -->
+
+
