@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+/* RESET HTML
+================================================== */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, #menu, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, #menu, section {
+  display: block;
+}
+
+/* BASE HTML
+================================================== */
+body { margin:0; padding:0; background:url(../images/body_bg.jpg) repeat center top; font-family:Tahoma, Geneva, sans-serif; font:13px/1.25  sans-serif; *font-size: small; }
+
+h1, h1 a { font-size: 32px; text-decoration: none; margin: 5px 0; text-transform:uppercase; color:#5C4632; font-family: 'CaviarDreamsRegular'; }
+h2, h2 a { font-size: 24px; text-decoration: none; margin: 5px 0; color:#5C4632; font-family: 'CaviarDreamsRegular'; }
+h3, h3 a { font-size: 20px; text-decoration: none; margin: 5px 0; color:#5C4632; font-family: 'CaviarDreamsRegular'; }
+h4, h4 a { font-size: 16px; text-decoration: none; margin: 5px 0; color:#5C4632; font-family: 'CaviarDreamsRegular'; }
+
+a { color:#69939E; text-decoration:none;}
+a:hover { text-decoration: underline; }
+a:visited, a:active { }
+a img { border:none;}
+:focus { outline:none;}
+.clr { clear:both;}
+.fl { float:left;}
+.fr { float:right;}
+ul, li { list-style:none;}
+
+/* HEADER STYLES
+================================================== */
+
+/* HEADER ELEMENTS */
+#header { height:137px; width:100%; position:relative;}
+#header-left-container .logo { height:137px; background:url(../images/logo_bg.png) no-repeat left top; margin-left:-44px;}
+#header-left-container .logo a img { margin:0 0 0 30px; }
+#header-right-container { margin-top:9px; float:right;}
+#header-right-container .logindiv form { float:right; }
+#header-right-container .logindiv .textbox { padding:0 10px; width:191px; height:34px; float:left; background:url(../images/textbox.png) no-repeat left top; line-height:34px; border:none; font-size:12px; color:#5f4e40; font-family: 'CaviarDreamsRegular'; }
+#header-right-container .logindiv input[type="password"] { margin:0 0 0 3px; width:170px; }
+#header-right-container .logindiv .loginbtn { width:21px; height:34px; float:left; background:url(../images/gobtn.png) no-repeat left top; border:none; cursor:pointer; }
+#header-right-container .socialdiv { position:absolute; bottom:0; right:0; }
+
+/* MAIN NAVIGATION */
+#nav-container { height:35px; background:url(../images/nav_bg.jpg) repeat-x center top; }
+nav .block .content { margin: 0; padding: 0; }
+nav ul, nav li { margin: 0; padding: 0; list-style:none; list-style-image: none; }
+nav h2 { display:none; }
+nav ul li { float:left; position:relative; }
+nav ul li a:hover { background:#c5dde3; color:#5B4531; }
+nav ul li a { float:left; display:block; font-size:12px; color:#fff; font-family: 'SpecialEliteRegular'; text-transform:uppercase; font-weight:bold; padding:10px 9px;}
+nav ul ul { display:none; position:absolute; left:0; top:35px; width:160px; z-index:999; }
+nav ul ul a { width:167px; background:#B4845C; padding:9px 11px; }
+nav ul ul ul { position:absolute; top:0; left:160px; }
+nav ul ul ul, nav ul ul ul ul, nav ul li:hover ul ul { display:none; }
+nav ul li:hover ul, nav ul ul li:hover ul { display:block; }
+
+#nav-container .nav { width:725px; float:left; }
+#nav-container .searchdiv { width:225px; margin:4px 10px 0 0; float:right; }
+#nav-container .searchdiv .textbox { width:169px; height:27px; background:url(../images/search_box.png) no-repeat left top; border:none; line-height:27px; margin:0; padding:0 10px; float:left; font-family: 'CaviarDreamsBold'; font-size:12px; color:#58432e; }
+#nav-container .searchdiv .gobtn { width:33px; height:27px; float:left; background:url(../images/search_btn.png) no-repeat left top; float:left; border:none; cursor:pointer; }
+
+/* HOMEPAGE CONTENT
+================================================== */
+#home-wrap { padding:10px 0 20px 0; background:#fff; }
+#home-content { width:840px; margin:0 auto; }
+
+#home-header .header-title { width:650px; float:left; background:#b1d1d9; height:78px; }
+#home-header .header-title h1 { font-size:30px; color:#fff; margin:0; padding:20px 0 0 30px; font-weight:bold; text-transform:uppercase; }
+#home-header .box { width:211px; height:74px; margin:0 -77px 0 0; float:right; background:url(../images/date_bg.png) no-repeat left top; }
+#home-header .box .boxes { padding:13px 5px; }
+
+/* ROTATOR */
+#rotator-container { height:387px; margin:15px 0 0 0; position:relative; }
+#rotator-wrap, #rotator { width:100%; height:100%; }
+.rotator-item { width:100%; height: 100%; overflow:hidden; }
+.rotator-content { z-index: 2; width:100%; height:150px; position:absolute; left:0; top:0; margin:0; padding:0; background-color: rgba(0, 0, 0,  0.50); }
+.rotator-content h1 { margin:0; padding:15px 40px 2px; border-bottom:solid 3px #fff; font-weight:bold; }
+.rotator-content h1 a { font-size:40px; color:#fff; font-family: 'CaviarDreamsBold'; text-transform:uppercase; }
+.rotator-content p { padding:10px 40px 0; font-family:"Gotham Book"; font-size:18px; color:#fff; font-weight:bold; }
+.rotator-content a.readmore { text-decoration:underline; color:inherit; text-transform:uppercase; font-weight:bold; }
+.rotator-image { position: absolute; z-index: 0; top:0; left:0; }
+.rotator-image a img, .rotator-image img { width:100%; height:100%; }
+
+/* HOMEPAGE BODY CONTENT */
+#update-row { margin:15px 0 0 0; }
+#update-row .article-col { width:510px; float:left; }
+#update-row .news-events-col { width:310px; background:url(../images/sidebar_bg.jpg) repeat left top; padding:0 0 10px 0; float:right; }
+#update-row .news-events-col h3 { font-size:20px; color:#5c4632; margin:0; font-weight:bold; font-family: 'CaviarDreamsRegular'; border-bottom:solid 2px #5c4632; text-transform:uppercase; }
+
+#update-row .article-col h3 { padding:8px 0 8px 12px; font-size:30px; color:#fff; background:#b1d1d9; text-transform:uppercase; font-weight:bold; }
+#update-row .article-col h4 { margin:0; }
+#update-row .article-col .image { margin:15px 15px 0 0; padding:0; float:left; }
+#update-row .article-col p { padding:14px 0 0 0; font-size:12px; color:#5e4d40; font-family:"Gotham Book"; line-height:17px; }
+
+#update-row .news-events-col .events, #update-row .news-events-col .news { margin:20px 25px 0 15px; }
+#update-row .news-events-col .events ul li { display:block; list-style:none; margin:10px 10px 0 0; padding:0 0 0 15px; background:url(../images/bullate.png) no-repeat left 3px; }
+#update-row .news-events-col .events ul li a { display:block; margin:0 0 2px 0; padding:0; font-size:13px; color:#fff; font-family:"Gotham Book"; font-weight:bold; text-transform:uppercase; }
+#update-row .news-events-col .events ul li p { padding:4px 0 0 0; font-size:11px; color:#5e4d40; font-weight:bold; font-family:"Gotham Book"; }
+
+#update-row .news-events-col .news ul li h4 a { margin:10px 0 2px 0; display:inline-block; font-size:13px; color:#fff; font-family:"Gotham Book"; font-weight:bold; text-transform:uppercase; }
+#update-row .news-events-col .news ul li p { font-size:12px; color:#5e4d40; font-family:"Gotham Book"; line-height:18px; }
+#update-row .news-events-col .news ul li p a { text-decoration:underline; text-transform:uppercase; font-size:11px; color:#fff; font-weight:bold; }
+
+#box-row .box-col { width:260px; margin:15px 30px 0 0; float:left; }
+#box-row .box-col:last-child { margin:20px 0 0 0; }
+#box-row .box-col h3 { text-transform:uppercase; }
+#box-row .box-col img { width:254px; height:84px; border:solid 3px #B4845C;}
+#box-row .box-col p { margin:5px 0 0 0; font-size:12px; color:#5e4d40; font-family:"Gotham Book"; line-height:18px; }
+#box-row .box-col p a { margin:0; padding:0; text-decoration:underline; font-size:11px; color:#69939e; font-weight:bold; font-family:"Gotham Book"; text-transform:uppercase; }
+
+/* INTERIOR BODY CONTENT */
+#body-content  { padding: 1%; background-color: rgba(255, 255,  255, 0.9); box-shadow: 4px 6px 13px  -3px rgba(0, 0, 0, 0.5); }
+#body-content-left { float: left; padding: 10px; margin: 1% auto 2%; }
+#body-content-right { float: right; padding: 10px; margin: 1% auto 2%;}
+
+/* INTERIOR SIDEBARS */
+.sidebar { background-color: rgba(235, 235, 235, 0.9); box-shadow: 4px 6px 13px -3px rgba(0, 0, 0, 0.5); padding: 2%; }
+#sidebar-left { float: left; }
+#sidebar-right { float: right; }
+
+/* PHOTOS */
+.sidebar #photos ul { list-style: none; margin: 0 0 20px; height: 330px; } 
+.sidebar #photos ul li { float: left; margin: 2%; }
+.sidebar #photos ul li a img { border: 4px #fff solid; width: 100%; height: auto; }
+
+/* FOOTER STYLES */
+#footer { width:100%; margin:10px 0 0 0; padding:10px 0; background:#b1d1d9; }
+#footer .address { margin:0 0 0 60px; width:260px; border-right:solid 2px #fff; float:left; text-align:center; }
+#footer .address span { font-size:14px; color:#5c4632; }
+#footer .links { width:600px; padding:20px 0 0 0; float:right;}
+#footer .links ul { padding:2px 0 0 0; float:left;}
+#footer .links ul li { display:block; padding:0 5px; list-style:none; float:left; background:url(../images/sep_1.jpg) no-repeat right 2px; text-transform:uppercase;}
+#footer .links ul li:last-child { background:none;}
+#footer .links ul li a { display:block; float:left; font-size:12px; color:#5c4632; font-family: 'CaviarDreamsBold'; text-transform:uppercase;}

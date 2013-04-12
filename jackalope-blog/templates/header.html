@@ -1,0 +1,38 @@
+{% load nav_tags %}
+{% load box_tags %}
+
+<div id="header" class="clearfix">
+    <div id="header-left-container" class="eight columns alpha">
+        <div class="logo">
+            <a href="/"><img src="{{ THEME_URL }}media/images/logo.png" border="0" alt="" /></a>
+        </div>
+    </div><!-- /#header-left-container -->
+    <div id="header-right-container" class="eight columns omega">
+        {% if not request.user.is_authenticated %}
+        <div class="logindiv clearfix">
+            <form class="header-form" method="post" action="/accounts/login/">{% csrf_token %}
+                <input type="text" name="username" onfocus="this.value=''" value="Username" class="textbox" />
+                <input type="password" name="password" onfocus="this.value=''" value="Password" class="textbox" />
+                <input type="submit" name="" value="" class="loginbtn" />
+            </form>
+        </div>
+        {% endif %}
+        <div class="socialdiv clearfix">
+            <a href="/"><img src="{{ THEME_URL }}media/images/facebook_icon.png" border="0" alt="" /></a>
+            <a href="/"><img src="{{ THEME_URL }}media/images/twitter_icon.png" border="0" alt="" /></a>
+            <a href="/"><img src="{{ THEME_URL }}media/images/rss_icon.png" border="0" alt="" /></a>
+        </div>
+    </div><!-- /#header-right-container -->
+</div><!-- /#header -->
+
+<div id="nav-container">
+    <div class="nav">
+        {% nav 1 %}
+    </div>
+    <div class="searchdiv">
+        <form method="get" action="/search/">
+            <input type="text" name="q" onfocus="this.value=''" value="Search" class="textbox" />
+            <input type="submit" value="" class="gobtn" />
+        </form>
+    </div>
+</div>
