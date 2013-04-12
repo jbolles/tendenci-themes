@@ -1,0 +1,34 @@
+<!-- Sidebar Start -->
+{% load news_tags %}
+{% load forms_tags %}
+
+<div id="sidebar">
+    <div id="news-row">
+      <div class="news-content">
+        <h3>Recent News</h3>
+        <ul>
+        {% list_news as news_list limit=5 %}
+        {% for news_item in news_list %}
+        <li class="clearfix">
+            <a href="{{ news_item.get_absolute_url }}">{{ news_item.headline }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div><!--/#news-row -->
+
+    <div id="donate-row">
+        <div class="donate-content">
+            <h3>Donate Today</h3>
+            <p>Your donation helps us bring new shows, sponsor new events and run the theater. Every dollar helps, Please donate today!</p>
+            <a href="{% url donation.add %}">DONATE</a>
+        </div>
+    </div><!--/#donate-row -->
+
+    <div id="form-row">
+        <div class="form-content">
+            {% embed_form 3 %}
+        </div>
+    </div>
+
+</div><!--Sidebar End -->
