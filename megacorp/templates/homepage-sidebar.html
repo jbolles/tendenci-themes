@@ -1,0 +1,65 @@
+{% load base_tags %}
+{% load cache %}
+{% load staff_tags %}
+<!-- Sidebar Section 1 -->
+<section id="box1">
+    <!-- Two Column Content Area -->
+    <div class="5grid">
+        <div class="row">
+            
+            <div class="6u">
+                <section>
+                    <h2>Tendenci Blog</h2>
+			        {% cache 86400 tendenci_blog_rss_sidebar %}
+                        {% get_rss "http://blog.tendenci.com/feed/" as rss %}
+                        <ul class="style4">
+                        {% for entry in rss.entries|slice:":5" %}
+                            {% if forloop.first %}<li class="first">{% else %}<li>{% endif %}
+                                <a href="{{ entry.link }}">{{ entry.title }}</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+			        {% endcache %}
+                </section>
+            </div>
+
+            <div class="6u">
+                <section>
+                    <h2>Tendenci Help</h2>
+			        {% cache 86400 tendenci_help_rss_sidebar %}
+                        {% get_rss "http://tendenci.com/help-files/feed/" as rss %}
+                        <ul class="style4">
+                        {% for entry in rss.entries|slice:":5" %}
+                            {% if forloop.first %}<li class="first">{% else %}<li>{% endif %}
+                                <a href="{{ entry.link }}">{{ entry.title }}</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+			        {% endcache %}
+                </section>
+            </div>
+
+        </div>
+    </div>
+    <!-- Two Column Content Area Ends Here -->
+</section>
+    
+<!-- Sidebar Section 2 -->
+<section id="box2">
+    <h2>Staff</h2>
+    <ul class="style2">
+    {% list_staff as staff_list limit=4 random=true status=true %}
+    {% for staff in staff_list %}
+        {% if forloop.first %}<li class="first clearfix">{% else %}<li class="clearfix">{% endif %}
+        <p><a href="{{ staff.get_absolute_url }}">
+        {% for img in staff.stafffile_set.all %}
+          {% if img.photo_type == "featured" %}
+          <img alt="{{ staff.name }}" src="{% url file img.pk %}80x80" />
+          {% endif %}
+        {% endfor %}
+        {{ staff.name }}<br>{{ staff.biography|striptags|truncatewords:"20"|safe }}
+        </a></p></li>
+    {% endfor %}
+    </ul>
+    <a href="{% url staff %}" class="button button-style1">View all</a>
+</section>

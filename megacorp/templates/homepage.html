@@ -1,0 +1,198 @@
+<!--
+    MegaCorp: A responsive HTML5 website template by HTML5Templates.com
+    Released for free under the Creative Commons Attribution 3.0 license (html5templates.com/license)
+    Visit http://html5templates.com for more great templates or follow us on Twitter @HTML5T
+-->
+
+<!-- Tendenci Specific Load Tags
+================================================== -->
+{% load base_filters %}
+{% load base_tags %}
+{% load theme_tags %}
+{% load cache %}
+{% load story_tags %}
+{% load box_tags %}
+{% load event_tags %}
+{% load news_tags %}
+{% load article_tags %}
+{% load mobile_tags %}
+
+<!-- Extends Tendenci Base Structure
+================================================== -->
+{% theme_extends "base.html" %}
+
+{% block extra_head %}
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<!-- Favicons
+================================================== -->
+  <link rel="shortcut icon" href="/themes/megacorp/media/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/themes/megacorp/media/images/apple-touch-icon.png">
+
+<!-- CSS
+================================================== -->
+  <noscript>
+  <link rel="stylesheet" href="/themes/megacorp/media/css/5grid/core.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/5grid/core-desktop.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/5grid/core-1200px.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/5grid/core-noscript.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/style.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/style-desktop.css" />
+  </noscript>
+  <!--[if IE 9]><link rel="stylesheet" href="css/style-ie9.css" /><![endif]-->
+{% endblock extra_head %}
+
+{% block body_ids %}home{% endblock %}
+{% block body_classes %}home{% endblock body_classes %}
+
+<!-- Primary Page Layout
+================================================== -->
+{% block html_body %}
+
+<!-- Header -->
+<div id="header-wrapper">
+  <header id="header">
+    <div class="5grid-layout">
+      {% theme_include "header.html" %} <!-- Pulls in the Header Document -->
+    </div>
+  </header>
+     
+  <div id="rotator-container" class="5grid-layout">
+      <div id="rotator-wrap" class="row">
+          <div id="rotator" class="12u">
+            {% list_stories as stories_list limit=4 tags="rotator" quality="90" %}
+            {% for story in stories_list %}
+              <div class="rotator-item">
+                <div class="rotator-content">
+                  <h2><a href="{{ story.full_story_link }}">{{ story.title }}</a></h2>
+                  <p>{{ story.content|safe|truncatewords:30 }}</p>
+                  <a class="button button-style1" href="{{ story.full_story_link }}">Read More &raquo;</a>
+                </div><!-- /.rotator-content-->
+                <div class="rotator-image 5grid-layout">
+                   <img src="{% image_url story.image size=920x400 crop=True quality=90 %}" alt="{{ story.title }}" />
+                </div><!-- /.rotator-image-->
+              </div><!-- /.rotator-item -->
+            {% endfor %}
+          </div><!-- /#rotator-->
+    </div><!-- /#rotator-wrap -->
+  </div><!-- /#rotator-container-->
+</div>
+<!-- Header Ends Here -->
+
+<!-- Featured Area -->
+<div id="featured-wrapper">
+  <div id="featured-content" class="5grid-layout">
+    <div class="row">
+      <div class="4u">
+        {% box 4 %}
+      </div>
+      <div class="4u">
+        {% box 5 %}
+      </div>
+      <div class="4u">
+        {% box 6 %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Featured Ends Here -->
+
+<!-- Wrapper -->
+<div id="wrapper" class="5grid-layout">
+  <!-- Page Content -->
+  <div id="page" class="row">
+    {% theme_include "base/messages.html" %} <!--Pulls in the Alert Messages within Tendenci Core-->
+    <!-- Content Area -->
+    <div id="content" class="8u">
+      <section id="news-row">
+        {% list_news as news_list limit=1 %}
+        {% for news_item in news_list %}
+          <h2 class="main-title">{{ news_item.headline }}</h2>
+          {% if news_item.thumbnail %}
+          <a href="{{ news_item.get_absolute_url }}" class="image-style1"><img src="{% image_url news_item.thumbnail size=690x200 crop=true %}" alt="{{ news_item.headline }}"></a>
+          {% endif %}
+          <p>{{ news_item.body|truncatewords:"100"|safe }}</p>
+          <a href="{{ news_item.get_absolute_url }}" class="button button-style1">Read More</a>
+        {% endfor %}
+      </section>
+                    
+      <!-- Two Column Area -->
+      <section>
+        <div id="two-column" class="5grid">
+          <div class="row">
+            <div id="events-col" class="6u">
+              <section>
+                <h2>Upcoming Events</h2>
+                <ul class="style3">
+                  {% list_events as events_list limit=2 %}
+                  {% for event in events_list %}
+                    {% if forloop.first %}<li class="first">{% else %}<li>{% endif %}
+                    <p><span class="date"><a href="{{ event.get_absolute_url }}">{{ event.start_dt|date:"Y.m.d" }}</a></span>
+                    <span class="heading-title">{{ event.title }}</span></p>
+                    <p><a href="{{ event.get_absolute_url }}">{{ event.description|striptags|truncatewords:"15"|safe }}</a></p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </section>
+            </div>
+
+            <div id="articles-col" class="6u">
+              <section>
+                <h2>Article List</h2>
+                <ul class="style4">
+                  {% list_articles as articles_list limit=3 %}
+                  {% for article in articles_list %}
+                    {% if forloop.first %}<li class="first">{% else %}<li>{% endif %}
+                    <h3>{{ article.headline }}</h3>
+                    <p><a href="{{ article.get_absolute_url }}">{{ article.body|striptags|truncatewords:"15"|safe }}</a></p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </section>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Sidebar Area -->
+    <div id="sidebar" class="4u">
+      {% theme_include "homepage-sidebar.html" %} <!-- Pulls in the Homepage Sidebar Document -->
+    </div>
+
+  </div>
+  <!-- Page Content -->
+</div>
+<!-- Wrapper Ends Here -->
+
+<!-- Footer -->
+<div class="5grid-layout" id="footer">
+    <div class="row">
+        {% theme_include "footer.html" %} <!-- Pulls in the Footer Document -->
+    </div>
+</div>
+
+<!-- End Document
+================================================== -->
+{% endblock html_body %}
+
+{% block extra_body %}
+  <script src="/themes/megacorp/media/js/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
+  <script src="{{ THEME_URL }}media/js/jquery.cycle.all.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#featured-content .boxes p>a').each(function(){
+        $(this).addClass('button');
+        $(this).addClass('button-style1');
+      });
+      $("#menu nav").addClass("mobileUI-site-nav");
+      $("#rotator").cycle({
+        timeout: 8000,
+        speed: 1000,
+      });
+    });
+  </script>
+{% endblock %}
