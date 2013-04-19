@@ -1,0 +1,38 @@
+// Color Variables
+@body-color: #686868;
+@header-color: lighten(@body-color, 40.5%); // #CFCFCF
+@anchor-color: lighten(@body-color, 15.5%); // #909090
+
+// Background Variables
+@body-background: #101214 url(../images/main-bg.png) repeat;
+@list-style1-bg: url(../images/bullet-icon.png) no-repeat left 50%;
+@list-style4-bg: url(../images/list-bullet.png) no-repeat left 50%;
+@header-bg: #FFFFFF url(../images/header-bg.png) repeat;
+@featured-bg: url(../images/featured-bg.png) repeat;
+
+@mobile-nav-bg: url(../images/nav-opener.png) no-repeat 12px 12px;
+
+// Other Variables
+@border-separator: 1px solid darken(@body-color, 28%);
+
+// Mixins
+.primary-header-color() {
+    color: #101214;
+    text-transform: uppercase;
+}
+
+.button-styles() {
+    background: #2B8FC4;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.body-content-styles() {
+    background: @header-bg;
+    box-shadow: 4px 6px 13px  -3px rgba(0, 0, 0, 0.5);
+}
+
+.body-sidebar-styles() {
+    background-color: rgba(235, 235, 235, 0.9);
+    box-shadow: 4px 6px 13px -3px rgba(0, 0, 0, 0.5);
+}

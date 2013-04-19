@@ -13,18 +13,18 @@ body {
 	font-size: 9pt;
 }
 
-/* Banner */
+/* Rotator */
 
-	#banner
+	#rotator-container
 	{
 	}
 
-	#banner h2
+	#rotator-container h2
 	{
 		font-size: 3.75em;
 	}
 
-	#banner p
+	#rotator-container p
 	{
 		font-size: 1.20em;
 	}

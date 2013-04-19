@@ -24,6 +24,7 @@
 {% block extra_head %}
 <!-- Mobile Specific Metas
 ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <!-- Favicons
@@ -34,10 +35,10 @@
 <!-- CSS
 ================================================== -->
   <noscript>
-  <link rel="stylesheet" href="/themes/megacorp/media/css/5grid/core.css" />
-  <link rel="stylesheet" href="/themes/megacorp/media/css/5grid/core-desktop.css" />
-  <link rel="stylesheet" href="/themes/megacorp/media/css/5grid/core-1200px.css" />
-  <link rel="stylesheet" href="/themes/megacorp/media/css/5grid/core-noscript.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/core.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/core-desktop.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/core-1200px.css" />
+  <link rel="stylesheet" href="/themes/megacorp/media/css/core-noscript.css" />
   <link rel="stylesheet" href="/themes/megacorp/media/css/style.css" />
   <link rel="stylesheet" href="/themes/megacorp/media/css/style-desktop.css" />
   </noscript>
@@ -66,7 +67,7 @@
             {% for story in stories_list %}
               <div class="rotator-item">
                 <div class="rotator-content">
-                  <h2><a href="{{ story.full_story_link }}">{{ story.title }}</a></h2>
+                  <h2>{{ story.title }}</h2>
                   <p>{{ story.content|safe|truncatewords:30 }}</p>
                   <a class="button button-style1" href="{{ story.full_story_link }}">Read More &raquo;</a>
                 </div><!-- /.rotator-content-->
@@ -180,7 +181,6 @@
 {% endblock html_body %}
 
 {% block extra_body %}
-  <script src="/themes/megacorp/media/js/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
   <script src="{{ THEME_URL }}media/js/jquery.cycle.all.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -195,4 +195,5 @@
       });
     });
   </script>
+  <script src="/themes/megacorp/media/js/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
 {% endblock %}

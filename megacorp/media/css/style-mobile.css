@@ -112,27 +112,23 @@
 
 /* Banner */
 
-	#banner
+	#rotator-container
 	{
-		height: auto !important;
-		padding: 2em 0 0 0;
-		background-position: right bottom;
-		background-size: 100% auto;
 	}
 
-	#banner section
+	#rotator-container .rotator-content
 	{
-		margin-bottom: 28em;
-		text-align: center;
+        width: 96%;
+        text-align: center;
 	}
 
-	#banner h2
+	#rotator-container .rotator-content h2
 	{
 		padding: 0 0 0 0 !important;
 		letter-spacing: normal;
 	}
 
-	#banner p
+	#rotator-container .rotator-content p
 	{
 		padding: 0 0 0 0 !important;
 		font-size: 1.00em;

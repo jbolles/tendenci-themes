@@ -334,7 +334,7 @@
     #rotator-container .rotator-image a img,
     #rotator-container .rotator-image img {
         width: 100% !important;
-        height: auto !important;
+        min-height: 41em !important;
     }
 
 /* Wrapper */
