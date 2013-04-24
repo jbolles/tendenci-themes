@@ -62,7 +62,7 @@
             {% for story in stories_list %}
               <div class="rotator-item">
                 <div class="rotator-content">
-                  <h1><a href="{{ story.full_story_link }}">{{ story.title }}</a></h2>
+                  <h2><a href="{{ story.full_story_link }}">{{ story.title }}</a></h2>
                   <p>{{ story.content|safe|truncatewords:15 }}
                   <a class="readmore" href="{{ story.full_story_link }}">Read More &raquo;</a></p>
                 </div><!-- /.rotator-content-->
@@ -96,8 +96,13 @@
              {% endfor %}
            </div><!--/.events-row -->
            <div class="button-row">
-             <a href="#">Join PR Firm Today</a>
-             <a href="#">Renew PR Firm Today</a>
+
+             <a href="#">Join Blue Suede Online</a>
+             <a href="#">Start Dancing Today</a>
+
+             <a href="#">Find a Job Dancing</a>
+             <a href="#">Renew Your Membership</a>
+
            </div><!--/.button-row -->
          </div><!--/.right-col -->
 
@@ -114,10 +119,10 @@
                <div class="news-item">
                  {% if news_item.summary %}
                  <p>{{ news_item.summary|striptags|truncatewords:"100"|safe }}
-                 {% else %}
+                   {% else %}</p>
                  <p>{{ news_item.body|striptags|truncatewords:"100"|safe }}
-                 {% endif %}
-                 <a href="{{ news_item.get_absolute_url }}">Read more ...</a></p>
+                   {% endif %}</p>
+                 <p><a href="{{ news_item.get_absolute_url }}">Read more ...</a></p>
                  <p><a class="view-more" href="{% url news %}">Read more news...</a></p>
                </div>
                {% endfor %}
@@ -183,3 +188,4 @@ $(document).ready(function() {
     s.parentNode.insertBefore(g,s)}(document,"script"));
   </script>
 {% endblock %}
+​
