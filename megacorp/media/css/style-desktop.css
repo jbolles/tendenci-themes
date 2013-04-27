@@ -30,10 +30,32 @@
 	#menu {
 		height: 8em;
 	}
+
+
+    #menu .logindiv {
+        height: 2em;
+        padding-top: 1em;
+    }
+
+    #menu .logindiv form {
+        float: right;
+    }
+
+    #menu .logindiv .textbox {
+        height: 100%;
+        float: left;
+    }
+
+    #menu .logindiv .loginbtn {
+        border: none;
+        cursor: pointer;
+        margin-top: 0;
+        padding: .25em 1em;
+    }
 	
 	#menu nav > ul {
 		float: right;
-		padding-top: 2em;
+        margin-top: 0;
 		text-align: center;
 	}
 

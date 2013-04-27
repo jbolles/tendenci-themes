@@ -60,10 +60,28 @@
 
 /* Header */
 
-	#header
+	#header #logo,
+    #header nav
 	{
-		display: none;
+        display: none;
 	}
+
+    #header #menu
+    {
+        margin: 0 !important;
+    }
+
+    #menu .logindiv .textbox {
+        height: 1.5em;
+        width: 98%;
+        margin-top: .5em;
+    }
+
+    #menu .logindiv .loginbtn {
+        cursor: pointer;
+        margin: 1%;
+        width: 98%;
+    }
 
 
 /*********************************************************************************/

@@ -541,7 +541,7 @@
 						_titlebar
 							.bind('goActive_5grid', function() {
 								_titlebar
-									.css('position', 'fixed')
+									.css('position', 'absolute')
 									.css('top', 0)
 									.css('left', 0);
 							})

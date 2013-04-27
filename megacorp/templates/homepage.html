@@ -181,9 +181,11 @@
 {% endblock html_body %}
 
 {% block extra_body %}
+  <script src="{{ THEME_URL }}media/js/jquery.hint.js" type="text/javascript"></script>
   <script src="{{ THEME_URL }}media/js/jquery.cycle.all.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).ready(function() {
+      $('input[title!=""]').hint();
       $('#featured-content .boxes p>a').each(function(){
         $(this).addClass('button');
         $(this).addClass('button-style1');
