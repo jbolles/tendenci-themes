@@ -2,6 +2,7 @@ name = Lightrail
 description = Lightrail theme for Tendenci CMS.
 tags = homepage grid, windows 8, spaces
 screenshot = screenshot.png
+screenshot_thumbnail = screenshot-thumbnail.png
 author = Schipul
 author uri = http://schipul.com
 version = 1.0

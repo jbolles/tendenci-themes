@@ -2,6 +2,7 @@ name = Salonify
 description = Salonify theme for Tendenci CMS.
 tags = homepage rotator, spaces
 screenshot = screenshot.png
+screenshot_thumbnail = screenshot-thumbnail.png
 author = Schipul
 author uri = http://schipul.com
 version = 1.0
