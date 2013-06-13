@@ -1,5 +1,6 @@
 name = Lucid
 screenshot = screenshot.png
+screenshot_thumbnail = screenshot-thumbnail.png
 author = Schipul
 author uri = http://schipul.com
 version = 1.0

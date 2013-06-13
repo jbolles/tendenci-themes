@@ -1,5 +1,6 @@
 name = Megacorp
 screenshot = screenshot.png
+screenshot_thumbnail = screenshot-thumbnail.png
 author = HTML5Templates.com
 author uri = http://html5templates.com/
 version = 1.0
