@@ -29,6 +29,7 @@
             
             {% block sidebar %}
             <div id="sidebar">
+                {% block extra_sidebar %}{% endblock %}
                 {% theme_include "sidebar.html" %}
             </div><!-- /#sidebar -->
             {% endblock %}

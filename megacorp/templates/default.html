@@ -66,6 +66,7 @@
 
     {% block sidebar %}
     <div id="home-sidebar" class="3u">
+      {% block extra_sidebar %}{% endblock %}
       {% theme_include "sidebar.html" %}
     </div><!-- /#sidebar -->
     {% endblock %}
