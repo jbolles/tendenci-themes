@@ -1,0 +1,15 @@
+{% load event_tags %}
+<h2>Upcoming Events</h2>
+{% list_events as events_list limit=3 %}
+<ul class="style2">
+    {% for event in events_list %}
+        <li>
+            <p><span class="date">{{event.start_dt|date:'Y.m.d'}}</span><span class="heading-title">
+                    <a href="{{ event.get_absolute_url }}">{{event.title}}</a>
+            </span></p>
+            <p>{{ event.description|striptags|truncatewords:"15"|safe }}</p>
+        </li>
+    {% endfor %}
+</ul>
+<p class="readmore-event" style="text-align: right; margin: 15px 0;">
+    <a  class="readmorelarge" href="/events/">View More Events &raquo;</a></p>

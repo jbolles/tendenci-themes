@@ -1,0 +1,203 @@
+<!-- Tendenci Specific Load Tags
+================================================== -->
+{% load base_filters %}
+{% load base_tags %}
+{% load theme_tags %}
+{% load story_tags %}
+{% load box_tags %}
+{% load nav_tags %}
+{% load video_tags %}
+{% load video_filters %}
+{% load news_tags %}
+{% load photo_tags %}
+{% load news_tags %}
+{% load event_tags %}
+{% load directory_tags %}
+{% load job_tags %}
+{% load staff_tags %}
+
+<!-- Extends Tendenci Base Structure
+================================================== -->
+{% theme_extends 'base.html' %}
+
+{% block extra_head %}
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+
+<!-- Favicons
+================================================== -->
+  <link rel="shortcut icon" href="{{ THEME_URL }}media/images/favicon.ico">
+  <link rel="apple-touch-icon" href="{{ THEME_URL }}media/images/apple-touch-icon.png">
+    
+
+<!-- CSS
+================================================== -->
+
+  <noscript>
+    <link rel="stylesheet" href="{{ THEME_URL }}media/css/5grid/core.css" />
+    <link rel="stylesheet" href="{{ THEME_URL }}media/css/5grid/core-desktop.css" />
+    <link rel="stylesheet" href="{{ THEME_URL }}media/css/5grid/core-1200px.css" />
+    <link rel="stylesheet" href="{{ THEME_URL }}media/css/5grid/core-noscript.css" />
+    <link rel="stylesheet" href="{{ THEME_URL }}media/css/style.css" />
+    <link rel="stylesheet" href="{{ THEME_URL }}media/scss/style-desktop.css" />
+  </noscript>
+
+<!-- IE Specific Compatibility
+================================================== -->
+  <!--[if IE 9]><link rel="stylesheet" href="css/style-ie9.css" /><![endif]-->  
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>   
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+{% endblock extra_head %}
+
+{% block body_ids %}home{% endblock body_ids %}
+{% block body_classes %}home{% endblock body_classes %}
+
+{% block html_body %}
+
+<div id="header-wrapper">
+	<header id="header" class="5grid-layout">
+		{% theme_include "header.html" %}
+	</header>
+</div>
+<div id="wrapper">
+	<div class="5grid-layout" id="welcome">
+		<div class="row">
+			<div class="12u">
+				<section class="content">
+                    {% theme_include "base/messages.html" %} <!--Pulls in the Alert Messages within Tendenci Core-->
+                    
+					<div id="rotator-container" class="container">
+                      <div id="rotator-wrap" class="sixteen columns alpha omega">
+                          <div id="rotator">
+                            {% list_stories as stories_list limit=6 tags="rotator" quality="90" %}
+                            {% for story in stories_list %}
+                              <div class="rotator-item">
+                                <div class="rotator-content">
+                                  <h2><a href="{{ story.full_story_link }}">{{ story.title }}</a></h2>
+                                  <p>{{ story.content|safe|truncatewords:30 }} <a class="readmore" href="{{ story.full_story_link }}">Read More &raquo;</a></p>
+                                </div><!-- /.rotator-content-->
+                                <div class="rotator-image">
+                                   <a href="{{ story.full_story_link }}"><img src="{% image_url story.image size=920x400 crop=True quality=90 %}" alt="{{ story.title }}" /></a>
+                                </div><!-- /.rotator-image-->
+                              </div><!-- /.rotator-item -->
+                            {% endfor %}
+                          </div><!-- /#rotator-->
+                          <div id="stories-pager"></div>
+                    </div><!-- /#rotator-wrap -->
+                  </div><!-- /#rotator-container-->
+                  
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="5grid-layout" id="page-wrapper">
+		<div class="row">
+			<div class="3u">
+				<section id="pbox1">
+                    <h2>Latest News</h2>
+                    {% list_news as news_list limit=3 %}
+                    
+                    <ul class="style4">
+                    {% for news_item in news_list %}
+                        <li {% if forloop.first %} class="first" {% endif %}>
+                            <p>{{news_item.release_dt|date:'F d, Y'}}</p>
+                            <p class="event-title"><a class="event-title" href="{{news_item.get_absolute_url}}">{{news_item.headline|truncatechars:"30"}}</a></p>
+                            <p>{{ news_item.summary|striptags|safe|truncatewords:"10" }}</p>
+                        </li>
+                    {% endfor %}
+                    </ul>
+				</section>
+			</div>
+			<div class="6u">
+				<section id="pbox2">
+					{% box 4 %}
+				</section>
+			</div>
+			<div class="3u">
+				<section id="pbox3" class="small-navs">
+					{% nav 2 "True" %}
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="5grid-layout" id="footer">
+		<div class="row">
+			<div class="8u">
+				<section id="fbox1">
+                    <h2>Meet Our Staff</h2>
+                    <p>Pellentesque viverra vulputate enim. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus.</p>
+					
+                    {% list_staff as staff_list limit=5 status=true %}
+                        <ul class="style1">
+                            {% for staff in staff_list %}
+                                <li>
+                                    {% if staff.stafffile_set.all %}
+                                        
+                                            {% for img in staff.stafffile_set.all %}
+                                                {% if img.photo_type == "featured" %}
+                                                    <p> <a href="{{ staff.get_absolute_url }}">
+                                                        <img src="{% url file img.pk %}169x186" alt="Contact {{ staff.name }}"/></a> 
+                                                    </p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        
+                                    {% endif %}
+                                    <p class="staffname">{{ staff.name }}</p>
+                                    <p><a href="{{ staff.get_absolute_url }}" class="button-style1">Read More</a></p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                                            
+				</section>
+			</div>
+			<div class="4u">
+				<section id="fbox2">
+                    {% theme_include "homepage_sidebar.html" %}
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% theme_include "footer.html" %}
+{% theme_include "footer-links.html" %} 
+<!-- End Document
+================================================== -->
+{% endblock %}
+
+
+<!-- JQuery & Scripts
+================================================== -->
+{% block extra_body %}
+{{ block.super }}
+    <script type="text/javascript"> 
+    $("#menu nav").addClass("mobileUI-site-nav");
+    </script>
+    <script src="{{ THEME_URL }}media/js/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
+    <script src="{{ THEME_URL }}media/js/jquery.cycle.all.min.js" type="text/javascript"></script>
+    <script src="{{ THEME_URL }}media/js/jquery.hint.js" type="text/javascript"></script>
+    <script type="text/javascript"> 
+    $('input[title!=""]').hint();
+    $(document).ready(function() {
+        $("#rotator").cycle({              // Controls the Rotator
+            timeout: 8000,
+            speed: 2000,
+            pager: '#stories-pager',
+            pagerEvent: 'mouseover'
+        });
+
+    });
+    </script>
+{% endblock %}
